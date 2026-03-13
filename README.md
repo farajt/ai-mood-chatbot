@@ -4,7 +4,7 @@ A simple Generative AI web application where users can chat with an AI that resp
 The chatbot is built using **Streamlit, LangChain, and Groq LLM** and demonstrates how system prompts can control AI behavior.
 
 **Live App:**
-https://ai-mood-chatbot.streamlit.app
+[https://ai-mood-chatbot.streamlit.app](https://ai-mood-chatbot-mrl4rpk6bulxcyfxae3htj.streamlit.app/)
 
 **Repository:**
 https://github.com/farajt/ai-mood-chatbot
