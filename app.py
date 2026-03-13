@@ -75,11 +75,11 @@ if "messages" in st.session_state:
 
     # Mode description
     if st.session_state.mode == "Angry":
-        st.caption("A sarcastic AI with a slightly annoyed personality.")
+        st.caption("You are angry AI Agent.A sarcastic AI with a slightly annoyed personality.")
     elif st.session_state.mode == "Funny":
-        st.caption("A humorous AI that adds jokes to responses.")
+        st.caption("You are funny AI Agent.A humorous AI that adds jokes to responses.")
     elif st.session_state.mode == "Sad":
-        st.caption("A calm assistant that speaks gently and thoughtfully.")
+        st.caption("You are sad AI Agent.A calm assistant that speaks gently and thoughtfully.")
 
     # Remove system message for display
     chat_messages = [
