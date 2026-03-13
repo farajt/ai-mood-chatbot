@@ -1,75 +1,75 @@
 # AI Mood Chatbot
 
-A small Generative AI web application that allows users to chat with an AI that responds in different personalities.
-The application is built using **Streamlit, LangChain, and Groq LLM** and demonstrates how prompt engineering can be used to control the behavior of an AI system.
+A simple Generative AI web application where users can chat with an AI that responds with different personalities.
+The chatbot is built using **Streamlit, LangChain, and Groq LLM** and demonstrates how system prompts can control AI behavior.
 
-Live interaction happens through a simple chat interface where users select a mood and then start a conversation with the AI.
+**Live App:** https://ai-mood-chatbot.streamlit.app
+**Repository:** https://github.com/farajt/ai-mood-chatbot
 
 ---
 
 ## Project Overview
 
-This project demonstrates how a single LLM can behave differently based on system instructions.
+This project shows how a single LLM can behave differently depending on the instructions given to it.
 
-When the application starts, the user selects one of the available AI modes:
+The user selects an AI personality and then starts chatting.
+Each personality is defined using a **system prompt**, which guides the tone and style of responses.
+
+Available modes:
 
 * Angry Mode
 * Funny Mode
 * Sad Mode
 
-Once a mode is selected, the chatbot responds according to that personality during the entire conversation.
-
-The system maintains conversation history during the session so the AI can respond with context.
+The application maintains conversation history during the session so the AI can respond with context.
 
 ---
 
 ## What This Project Demonstrates
 
-This project focuses on practical GenAI application development and shows:
+* Prompt engineering using system instructions
+* Building a chat interface with Streamlit
+* Integrating LangChain with Groq LLM
+* Managing conversation state using Streamlit session state
+* Structuring a small GenAI application for deployment
+* Deploying an AI app using Streamlit Cloud
 
-* Using **system prompts** to control AI behavior
-* Building a **chat interface using Streamlit**
-* Integrating **LangChain with Groq LLM**
-* Managing conversation history using session state
-* Structuring a small AI project for deployment
-* Secure API key management using environment variables
-
-The goal of this project is to demonstrate a simple but real-world GenAI workflow.
+This project focuses on creating a simple but complete LLM-powered application.
 
 ---
 
 ## Architecture
 
-The application follows a simple conversational pipeline.
+The application follows a straightforward conversational flow:
 
-User Message
-→ Streamlit Chat UI
-→ LangChain Message Formatting
+User Input
+→ Streamlit Chat Interface
+→ LangChain Message Handling
 → Groq LLM (Llama 3.1)
 → AI Response
-→ Streamlit Display
+→ Streamlit UI Display
 
-Conversation history is stored in Streamlit session state so the model can generate context-aware responses.
+Conversation history is stored in session state and sent with each request so the model can generate context-aware responses.
 
 ---
 
 ## Tech Stack
 
-### Backend
+**Backend**
 
 * Python
 * LangChain
 * Groq API (LLM inference)
 
-### Frontend
+**Frontend**
 
 * Streamlit
 
-### Environment Management
+**Environment Management**
 
 * python-dotenv
 
-### Deployment
+**Deployment**
 
 * Streamlit Cloud
 * GitHub
@@ -78,39 +78,22 @@ Conversation history is stored in Streamlit session state so the model can gener
 
 ## How It Works
 
-### Mode Selection
+**Mode Selection**
 
-When the application loads, the user chooses one of the AI personalities.
+The user selects a chatbot personality.
+Each mode sets a different system prompt that controls the AI's behavior.
 
-Each personality sets a **system instruction** that defines the AI’s behavior.
+**Conversation Handling**
 
-Example:
+User messages and AI responses are stored in session state to maintain chat history.
 
-* Angry mode → AI responds aggressively
-* Funny mode → AI responds with humor
-* Sad mode → AI responds in a melancholic tone
+**Response Generation**
 
----
+The conversation history is sent to the Groq-hosted Llama model, which generates the response based on the selected personality.
 
-### Conversation Handling
+**UI Rendering**
 
-User messages are stored in a session-based message list.
-
-Each new message is appended to the conversation history and sent to the model.
-
-LangChain formats the conversation before sending it to the Groq API.
-
----
-
-### Response Generation
-
-The Groq-hosted Llama model generates a response based on:
-
-* The selected system instruction
-* Previous conversation messages
-* The user’s current input
-
-The response is then rendered in the Streamlit chat interface.
+Streamlit displays messages in a chat interface and updates the conversation in real time.
 
 ---
 
@@ -126,105 +109,21 @@ ai-mood-chatbot
 └── .env
 ```
 
-**app.py**
-Main Streamlit application containing the chatbot logic.
-
-**requirements.txt**
-Project dependencies.
-
-**.env**
-Stores environment variables such as the Groq API key.
-
-**.gitignore**
-Ensures sensitive files and environment folders are not pushed to GitHub.
-
----
-
-## Installation
-
-Clone the repository:
-
-```
-git clone https://github.com/YOUR_USERNAME/ai-mood-chatbot.git
-```
-
-Move into the project directory:
-
-```
-cd ai-mood-chatbot
-```
-
-Create a virtual environment using uv:
-
-```
-uv venv
-```
-
-Activate the environment (Windows):
-
-```
-.venv\Scripts\activate
-```
-
-Install dependencies:
-
-```
-uv pip install -r requirements.txt
-```
-
----
-
-## Environment Variables
-
-Create a `.env` file in the project root.
-
-Add your Groq API key:
-
-```
-GROQ_API_KEY=your_api_key_here
-```
-
-You can generate a key from the Groq developer console.
-
----
-
-## Running the Application
-
-Start the Streamlit server:
-
-```
-streamlit run app.py
-```
-
-The application will open in your browser.
-
-Typically at:
-
-```
-http://localhost:8501
-```
-
-Select a mode and start chatting with the AI.
-
 ---
 
 ## Possible Improvements
 
-Future improvements for this project could include:
+Future improvements could include:
 
 * Additional AI personalities
-* Streaming responses for real-time typing
-* Persistent conversation memory
-* Conversation export
+* Streaming responses (real-time typing)
+* Persistent chat history
 * UI enhancements
-* Multi-model selection
+* Model selection options
 
 ---
 
 ## Author
 
 Faraj Tamboli
-M.Tech – Computer Science (AI)
-IIIT Pune
-
-Interested in applied AI systems, LLM engineering, and production-ready ML applications.
+M.Tech CSE (AI) — IIIT Pune
